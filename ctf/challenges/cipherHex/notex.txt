@@ -1,0 +1,17 @@
+Cipher Cryptic HexCode  
+
+
+'''
+ 0xc4115 ------------> Asci A
+Ï
+
+ALø
+ALø
+
+
+
+Its an exclusive OR of 0xc4115 0x4cf8 -------> And we get c0ded
+
+
+Flag is 0xc0ded
+'''

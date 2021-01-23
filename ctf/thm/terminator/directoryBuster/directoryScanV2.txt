@@ -1,0 +1,8 @@
+/index.html (Status: 200)
+/image.png (Status: 200)
+/admin (Status: 301)
+/css (Status: 301)
+/style.css (Status: 200)
+/js (Status: 301)
+/config (Status: 301)
+/ai (Status: 301)

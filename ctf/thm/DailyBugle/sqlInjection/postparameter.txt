@@ -1,0 +1,16 @@
+POST /administrator/index.php HTTP/1.1
+Host: 10.10.24.247
+Content-Length: 112
+Cache-Control: max-age=0
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36
+Origin: http://10.10.24.247
+Content-Type: application/x-www-form-urlencoded
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+Referer: http://10.10.24.247/administrator/index.php
+Accept-Encoding: gzip, deflate
+Accept-Language: en-GB,en-US;q=0.9,en;q=0.8
+Cookie: eaa83fe8b963ab08ce9ab7d4a798de05=9guug3q6eicvleuskjpif962s3; 2b01af51830ca9615359108de04d9ca1=cup0uplb2p64v02bs1cj0ascg6
+Connection: close
+
+username=pranay&passwd=pranay&option=com_login&task=login&return=aW5kZXgucGhw&432a70d0a083de650cfe836093ba270a=1

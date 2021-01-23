@@ -1,0 +1,10 @@
+- Nikto v2.1.6/2.1.5
++ No web server found on 10.10.107.236:80
+- Nikto v2.1.6/2.1.5
++ No web server found on 10.10.53.143:445
+- Nikto v2.1.6/2.1.5
++ No web server found on 10.10.53.143:3389
+- Nikto v2.1.6/2.1.5
++ No web server found on 10.10.53.143:3389
+- Nikto v2.1.6/2.1.5
++ No web server found on 10.10.53.143:139

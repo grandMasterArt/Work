@@ -1,0 +1,27 @@
+# Nmap 7.91 scan initiated Fri Jan 15 10:26:26 2021 as: nmap -Pn -A -vv --script=vuln -p 49668,49666,49663,3389,445,80 -oN nmap/aggresivePortScan.nmap 10.10.3.63
+Nmap scan report for 10.10.3.63
+Host is up, received user-set.
+Scanned at 2021-01-15 10:26:37 IST for 22s
+
+PORT      STATE    SERVICE       REASON      VERSION
+80/tcp    filtered http          no-response
+445/tcp   filtered microsoft-ds  no-response
+3389/tcp  filtered ms-wbt-server no-response
+49663/tcp filtered unknown       no-response
+49666/tcp filtered unknown       no-response
+49668/tcp filtered unknown       no-response
+Too many fingerprints match this host to give specific OS details
+TCP/IP fingerprint:
+SCAN(V=7.91%E=4%D=1/15%OT=%CT=%CU=%PV=Y%G=N%TM=6001209B%P=x86_64-pc-linux-gnu)
+U1(R=N)
+IE(R=N)
+
+
+TRACEROUTE (using proto 1/icmp)
+HOP RTT       ADDRESS
+1   269.24 ms 10.2.0.1
+2   ... 30
+
+Read data files from: /usr/bin/../share/nmap
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Fri Jan 15 10:27:00 2021 -- 1 IP address (1 host up) scanned in 33.96 seconds

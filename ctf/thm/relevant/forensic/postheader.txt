@@ -1,0 +1,22 @@
+POST /Account/TraditionalLoginForm HTTP/1.1
+Host: msft-sme.myget.org
+Connection: close
+Content-Length: 219
+Cache-Control: max-age=0
+sec-ch-ua: "Google Chrome";v="87", " Not;A Brand";v="99", "Chromium";v="87"
+sec-ch-ua-mobile: ?0
+Upgrade-Insecure-Requests: 1
+Origin: https://msft-sme.myget.org
+Content-Type: application/x-www-form-urlencoded
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: navigate
+Sec-Fetch-User: ?1
+Sec-Fetch-Dest: document
+Referer: https://msft-sme.myget.org/Account/Login?ReturnUrl=%2Ffeed%2FIndex%2Fwindows-admin-center-feed
+Accept-Encoding: gzip, deflate
+Accept-Language: en-GB,en-US;q=0.9,en;q=0.8
+Cookie: ai_user=tyBsW|2021-01-14T04:39:27.212Z; intercom-id-vsdq51y9=ff16d6df-9be7-4329-8bd9-2ca6dbc6d322; intercom-session-vsdq51y9=; _gcl_au=1.1.789270121.1610599307; __hstc=117246297.d865bf82374b0fdf05908554f578e8b3.1610599308882.1610599308882.1610599308882.1; hubspotutk=d865bf82374b0fdf05908554f578e8b3; _fbp=fb.1.1610599310295.1477131320; _ga=GA1.2.1594125918.1610599334; _gid=GA1.2.2004428052.1610599334; _uetsid=cfabb4d0562211eb8cccdb35280e8423; _uetvid=cfacd100562211eb98e8ebac877a689b; __RequestVerificationToken=nGZOYn0OblPx0GDpyBOTQQzwMTb4JEpniQmW010coIKuf8Y2zYo4iG2_mSTrZRBH7fvmSwiMSuicFdSfdIkbvSL-AvzhzsJXoGd9GApTr8k1; ai_session=Zvzqx|1610682930665|1610682986838.825
+
+__RequestVerificationToken=cShe_ckWprgb4RDeoZmyUz-JxFSvE1y5RpowffnuKrdRFV1929gdz25NrF9lsVT9jwa7PHZwGel_Rv1LfGeI4lLoF1-CUvCdIGxwRcsvoF81&ReturnUrl=%2Ffeed%2FIndex%2Fwindows-admin-center-feed&Username=admin&Password=admin

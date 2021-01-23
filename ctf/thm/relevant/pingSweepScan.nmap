@@ -1,0 +1,1 @@
+# Nmap 7.91 scan initiated Thu Jan 14 23:30:48 2021 as: nmap -Pn -A -vv -p- -oN pingSweepScan.nmap 10.10.53.143

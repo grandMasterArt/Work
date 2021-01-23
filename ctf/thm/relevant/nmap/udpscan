@@ -1,0 +1,17 @@
+# Nmap 7.91 scan initiated Sat Jan 16 21:22:43 2021 as: nmap -sS -sU -sV -vv -oN nmap/udpscan 10.10.55.247
+Nmap scan report for 10.10.55.247
+Host is up, received echo-reply ttl 125 (0.43s latency).
+Scanned at 2021-01-16 21:22:44 IST for 5021s
+Not shown: 1000 open|filtered ports, 995 filtered ports
+Reason: 1995 no-responses
+PORT     STATE SERVICE       REASON          VERSION
+80/tcp   open  http          syn-ack ttl 125 Microsoft IIS httpd 10.0
+135/tcp  open  msrpc         syn-ack ttl 125 Microsoft Windows RPC
+139/tcp  open  netbios-ssn   syn-ack ttl 125 Microsoft Windows netbios-ssn
+445/tcp  open  microsoft-ds  syn-ack ttl 125 Microsoft Windows Server 2008 R2 - 2012 microsoft-ds
+3389/tcp open  ms-wbt-server syn-ack ttl 125 Microsoft Terminal Services
+Service Info: OSs: Windows, Windows Server 2008 R2 - 2012; CPE: cpe:/o:microsoft:windows
+
+Read data files from: /usr/bin/../share/nmap
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Sat Jan 16 22:46:25 2021 -- 1 IP address (1 host up) scanned in 5022.15 seconds

@@ -1,0 +1,115 @@
+# Nmap 7.91 scan initiated Thu Jan 14 09:35:15 2021 as: nmap -sV -vv --reason -A -f -oN nmap/verboseScan.nmap 10.10.107.236
+Nmap scan report for 10.10.107.236
+Host is up, received echo-reply ttl 125 (0.43s latency).
+Scanned at 2021-01-14 09:35:16 IST for 79s
+Not shown: 995 filtered ports
+Reason: 995 no-responses
+PORT     STATE SERVICE       REASON          VERSION
+80/tcp   open  http          syn-ack ttl 125 Microsoft IIS httpd 10.0
+| http-methods: 
+|   Supported Methods: OPTIONS TRACE GET HEAD POST
+|_  Potentially risky methods: TRACE
+|_http-server-header: Microsoft-IIS/10.0
+|_http-title: IIS Windows Server
+135/tcp  open  msrpc         syn-ack ttl 125 Microsoft Windows RPC
+139/tcp  open  netbios-ssn   syn-ack ttl 125 Microsoft Windows netbios-ssn
+445/tcp  open  microsoft-ds  syn-ack ttl 125 Windows Server 2016 Standard Evaluation 14393 microsoft-ds
+3389/tcp open  ms-wbt-server syn-ack ttl 125 Microsoft Terminal Services
+| rdp-ntlm-info: 
+|   Target_Name: RELEVANT
+|   NetBIOS_Domain_Name: RELEVANT
+|   NetBIOS_Computer_Name: RELEVANT
+|   DNS_Domain_Name: Relevant
+|   DNS_Computer_Name: Relevant
+|   Product_Version: 10.0.14393
+|_  System_Time: 2021-01-14T04:06:50+00:00
+| ssl-cert: Subject: commonName=Relevant
+| Issuer: commonName=Relevant
+| Public Key type: rsa
+| Public Key bits: 2048
+| Signature Algorithm: sha256WithRSAEncryption
+| Not valid before: 2021-01-13T03:35:30
+| Not valid after:  2021-07-15T03:35:30
+| MD5:   9506 412d 5624 cbcc 6b74 e8e0 ec8b e804
+| SHA-1: d35f 3333 f99d dd50 85f8 1c2a 565e 84d3 1892 4fe2
+| -----BEGIN CERTIFICATE-----
+| MIIC1DCCAbygAwIBAgIQFieetBlTKaFBH6Lg6XfpmTANBgkqhkiG9w0BAQsFADAT
+| MREwDwYDVQQDEwhSZWxldmFudDAeFw0yMTAxMTMwMzM1MzBaFw0yMTA3MTUwMzM1
+| MzBaMBMxETAPBgNVBAMTCFJlbGV2YW50MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8A
+| MIIBCgKCAQEArCu1fagvzzX0LKD0iTDFDImzZXpNwf5qtADve+X2/MGXOcvLsMLp
+| rs2wY2lOL9A8vyPpy+564tDXiwT9mdXRjTJ4NQBLQihWs2bFVtEFKoXRPEfsUEVf
+| FPylcj+kGqTnvniaGA9yYa3MQ+r5cC2FnfEthg+dLHAmC/hErGSqmvsIVsPNMFiM
+| ER1s9oh6VZ86wwKKGo1Pbw2O+QygkY9DAYkyUS1Ritu5R4G/dEBlHsCVerm6Wu1o
+| 0ccDUiH0mmitzCMohPdFc5FWwyDaFCyMWLcgBusSGRquYaVGGS/U6ymycfjiJaY2
+| Bvz0i/oYZElBJPwW9+O1xv0cosOJFa3a1wIDAQABoyQwIjATBgNVHSUEDDAKBggr
+| BgEFBQcDATALBgNVHQ8EBAMCBDAwDQYJKoZIhvcNAQELBQADggEBACLDzhfsDe3/
+| bZ2cwJ42SEK3+zeOOnRR/u2mq7VsXV7f+/eaWeOo5hkWrwke8vkIDrkIZV1y6tfH
+| 3nb6ATW/LS/Df6EacmTjsEwKf1Mu5m5xDnyNYJ9wLV2obf2b2+gTO134AGRPKoA4
+| 9XMTjEmAI+QdMPl1LKpz0br08PqA8IV4pAbHoq2iJU6QFSyLOven7ufWoq8gKmcE
+| fEj/8gHbYLZBf9OWmYxKgNtRxM/8QoSZadTWRMlRZfYLlo/daiNZlO9rZwzSrc4u
+| Ri/xxhebB7h6O/xRiYoprAtp+Btdj9gQzDi5QBNJ1OJlMaBy09j2yU/ih+fp+BY6
+| JYewFYzMmqM=
+|_-----END CERTIFICATE-----
+|_ssl-date: 2021-01-14T04:07:28+00:00; +54s from scanner time.
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose
+Running (JUST GUESSING): Microsoft Windows 2016|10 (87%)
+OS CPE: cpe:/o:microsoft:windows_server_2016 cpe:/o:microsoft:windows_10:1607
+OS fingerprint not ideal because: Missing a closed TCP port so results incomplete
+Aggressive OS guesses: Microsoft Windows Server 2016 (87%), Microsoft Windows 10 1607 (85%)
+No exact OS matches for host (test conditions non-ideal).
+TCP/IP fingerprint:
+SCAN(V=7.91%E=4%D=1/14%OT=80%CT=%CU=%PV=Y%DS=4%DC=T%G=N%TM=5FFFC34B%P=x86_64-pc-linux-gnu)
+SEQ(SP=107%GCD=1%ISR=109%TI=I%II=I%SS=O%TS=A)
+OPS(O1=M505NW8ST11%O2=M505NW8ST11%O3=M505NW8NNT11%O4=M505NW8ST11%O5=M505NW8ST11%O6=M505ST11)
+WIN(W1=2000%W2=2000%W3=2000%W4=2000%W5=2000%W6=2000)
+ECN(R=Y%DF=Y%TG=80%W=2000%O=M505NW8NNS%CC=Y%Q=)
+T1(R=Y%DF=Y%TG=80%S=O%A=S+%F=AS%RD=0%Q=)
+T2(R=N)
+T3(R=N)
+T4(R=N)
+U1(R=N)
+IE(R=Y%DFI=N%TG=80%CD=Z)
+
+Uptime guess: 0.022 days (since Thu Jan 14 09:04:17 2021)
+Network Distance: 4 hops
+TCP Sequence Prediction: Difficulty=263 (Good luck!)
+IP ID Sequence Generation: Incremental
+Service Info: OSs: Windows, Windows Server 2008 R2 - 2012; CPE: cpe:/o:microsoft:windows
+
+Host script results:
+|_clock-skew: mean: 1h36m54s, deviation: 3h34m40s, median: 54s
+| p2p-conficker: 
+|   Checking for Conficker.C or higher...
+|   Check 1 (port 45230/tcp): CLEAN (Timeout)
+|   Check 2 (port 10585/tcp): CLEAN (Timeout)
+|   Check 3 (port 20488/udp): CLEAN (Timeout)
+|   Check 4 (port 55322/udp): CLEAN (Timeout)
+|_  0/4 checks are positive: Host is CLEAN or ports are blocked
+| smb-os-discovery: 
+|   OS: Windows Server 2016 Standard Evaluation 14393 (Windows Server 2016 Standard Evaluation 6.3)
+|   Computer name: Relevant
+|   NetBIOS computer name: RELEVANT\x00
+|   Workgroup: WORKGROUP\x00
+|_  System time: 2021-01-13T20:06:49-08:00
+| smb-security-mode: 
+|   account_used: guest
+|   authentication_level: user
+|   challenge_response: supported
+|_  message_signing: disabled (dangerous, but default)
+| smb2-security-mode: 
+|   2.02: 
+|_    Message signing enabled but not required
+| smb2-time: 
+|   date: 2021-01-14T04:06:53
+|_  start_date: 2021-01-14T03:35:31
+
+TRACEROUTE (using port 3389/tcp)
+HOP RTT       ADDRESS
+1   290.43 ms 10.2.0.1
+2   ... 3
+4   429.96 ms 10.10.107.236
+
+Read data files from: /usr/bin/../share/nmap
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Thu Jan 14 09:36:35 2021 -- 1 IP address (1 host up) scanned in 80.04 seconds

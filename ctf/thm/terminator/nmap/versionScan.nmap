@@ -1,0 +1,18 @@
+# Nmap 7.91 scan initiated Fri Jan  8 09:29:24 2021 as: nmap -sV -vv -f -oN nmap/versionScan.nmap 10.10.77.240
+Nmap scan report for 10.10.77.240
+Host is up, received echo-reply ttl 61 (0.42s latency).
+Scanned at 2021-01-08 09:29:24 IST for 24s
+Not shown: 994 closed ports
+Reason: 994 resets
+PORT    STATE SERVICE     REASON         VERSION
+22/tcp  open  ssh         syn-ack ttl 61 OpenSSH 7.2p2 Ubuntu 4ubuntu2.8 (Ubuntu Linux; protocol 2.0)
+80/tcp  open  http        syn-ack ttl 61 Apache httpd 2.4.18 ((Ubuntu))
+110/tcp open  pop3        syn-ack ttl 61 Dovecot pop3d
+139/tcp open  netbios-ssn syn-ack ttl 61 Samba smbd 3.X - 4.X (workgroup: WORKGROUP)
+143/tcp open  imap        syn-ack ttl 61 Dovecot imapd
+445/tcp open  netbios-ssn syn-ack ttl 61 Samba smbd 3.X - 4.X (workgroup: WORKGROUP)
+Service Info: Host: SKYNET; OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Read data files from: /usr/bin/../share/nmap
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Fri Jan  8 09:29:48 2021 -- 1 IP address (1 host up) scanned in 24.18 seconds
