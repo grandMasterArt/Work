@@ -4,7 +4,7 @@ Digital Name: grandMaster1_0
 
 Description:
 
-I am currently an Inter at an organization HighRadius Technology. Working as an Intern in the AUTO UI Team. currently learning a new skill set to turn my career into the field of cybersecurity. I am an RED Team Enthusiast. Currently working through different types of Try Hack Me mis-configuration room where I try solving different kinds of rooms to make me understand all the stages of performing a Penetration Testing & Vulnerability Assessments. Kali Linux is my top preference for performing penetration testing.
+I am currently an Intern at an organization HighRadius Technology. Working as an Intern in the AUTO UI Team. currently learning a new skill set to turn my career into the field of cybersecurity. I am an RED Team Enthusiast. Currently working through different types of Try Hack Me mis-configuration room where I try solving different kinds of rooms to make me understand all the stages of performing a Penetration Testing & Vulnerability Assessments. Kali Linux is my top preference for performing penetration testing.
 
 This Repository represents my current on going practice assessments and to hone the mindset of an Attacker. My current experiences are in the Try Hack Me platform & CTF-learn, actively looking for live CTF’s and Bug Bounty to gain some more experience. All of my work will be updated as the due course of time.
 
